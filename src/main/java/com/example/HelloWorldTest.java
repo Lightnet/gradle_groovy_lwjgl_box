@@ -1,4 +1,4 @@
-package com.example; // src/main/java/com/example/HelloWorldTest.java
+package com.example;  // src/main/java/com/example/HelloWorldTest.java
 
 import org.lwjgl.*;
 import org.lwjgl.glfw.*;

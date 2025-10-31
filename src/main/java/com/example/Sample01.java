@@ -1,5 +1,4 @@
-// src/main/java/com/example/HelloWorld02.java
-package com.example;
+package com.example; // src/main/java/com/example/Sample01.java
 
 public class Sample01 {
     public static void main(String[] args) {

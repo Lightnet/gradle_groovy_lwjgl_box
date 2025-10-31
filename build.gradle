@@ -4,6 +4,26 @@ plugins {
     id 'eclipse'
 }
 
+compileJava.options.encoding = 'UTF-8'
+
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}
+
+tasks.withType(Javadoc) {
+    options.encoding = "UTF-8"
+}
+
+// For running tests/applications if needed at runtime
+tasks.withType(Test) {
+    systemProperty("file.encoding", "UTF-8")
+}
+
+// If using Groovy
+tasks.withType(GroovyCompile) {
+    groovyOptions.encoding = "UTF-8"
+}
+
 // LWJGL and JOML versions
 project.ext.lwjglVersion = "3.3.6"
 project.ext.jomlVersion = "1.10.8"
