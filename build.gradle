@@ -1,0 +1,59 @@
+plugins {
+    id 'java'
+    id 'application'
+    id 'eclipse'
+}
+
+// LWJGL and JOML versions
+project.ext.lwjglVersion = "3.3.6"
+project.ext.jomlVersion = "1.10.8"
+project.ext.lwjglNatives = "natives-windows"  // Change to: natives-linux, natives-macos, etc.
+
+repositories {
+    mavenCentral()
+}
+
+
+dependencies {
+    // === Use LWJGL BOM to manage versions ===
+    implementation platform("org.lwjgl:lwjgl-bom:${lwjglVersion}")
+
+    // === Core LWJGL Modules (compile-time) ===
+    implementation "org.lwjgl:lwjgl"
+    implementation "org.lwjgl:lwjgl-assimp"
+    implementation "org.lwjgl:lwjgl-bgfx"
+    implementation "org.lwjgl:lwjgl-glfw"
+    implementation "org.lwjgl:lwjgl-nanovg"
+    implementation "org.lwjgl:lwjgl-nuklear"
+    implementation "org.lwjgl:lwjgl-openal"
+    implementation "org.lwjgl:lwjgl-opengl"
+    implementation "org.lwjgl:lwjgl-par"
+    implementation "org.lwjgl:lwjgl-stb"
+    implementation "org.lwjgl:lwjgl-vulkan"  // Note: Vulkan headers only, no native runtime
+
+    // === Native Bindings (runtime only) ===
+    runtimeOnly "org.lwjgl:lwjgl::${lwjglNatives}"
+    runtimeOnly "org.lwjgl:lwjgl-assimp::${lwjglNatives}"
+    runtimeOnly "org.lwjgl:lwjgl-bgfx::${lwjglNatives}"
+    runtimeOnly "org.lwjgl:lwjgl-glfw::${lwjglNatives}"
+    runtimeOnly "org.lwjgl:lwjgl-nanovg::${lwjglNatives}"
+    runtimeOnly "org.lwjgl:lwjgl-nuklear::${lwjglNatives}"
+    runtimeOnly "org.lwjgl:lwjgl-openal::${lwjglNatives}"
+    runtimeOnly "org.lwjgl:lwjgl-opengl::${lwjglNatives}"
+    runtimeOnly "org.lwjgl:lwjgl-par::${lwjglNatives}"
+    runtimeOnly "org.lwjgl:lwjgl-stb::${lwjglNatives}"
+
+    // Vulkan has no native .jar — it's headers only
+    // So NO runtimeOnly needed for vulkan
+
+    // === JOML ===
+    implementation "org.joml:joml:${jomlVersion}"
+}
+
+
+// Set main class for `./gradlew run`
+application {
+    mainClass = 'com.example.HelloWorldTest'
+}
+
+

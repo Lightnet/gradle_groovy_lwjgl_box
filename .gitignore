@@ -1,0 +1,49 @@
+# Gradle
+.gradle/
+build/
+gradle/
+gradlew
+gradlew.bat
+!gradle/wrapper/gradle-wrapper.jar
+!gradle/wrapper/gradle-wrapper.properties
+!gradlew
+!gradlew.bat
+
+# Gradle Wrapper (keep these in git!)
+# (we use ! to "un-ignore" the wrapper files)
+!gradle/wrapper/
+
+# IntelliJ IDEA
+.idea/
+*.iws
+*.iml
+*.ipr
+
+# Eclipse
+.classpath
+.project
+.settings/
+bin/
+
+# VS Code
+.vscode/
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+ehthumbs.db
+
+# Logs & temp
+*.log
+*.tmp
+*.bak
+
+# Local Gradle properties (contains credentials, etc.)
+local.properties
+
+# Build outputs
+out/
+dist/
+target/
